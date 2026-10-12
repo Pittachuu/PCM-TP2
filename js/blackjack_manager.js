@@ -94,12 +94,23 @@ function playerNewCard() {
 
 }
 
-//TODO: Implement this method.
 /**
  * Finishes the dealer's turn.
  */
 function dealerFinish() {
+    if (!game || game.state.gameEnded) {
+        return;
+    }
 
+    game.setDealerTurn(true);
+    let state = game.getGameState();
+
+    while (!state.gameEnded) {
+        state = dealerNewCard();
+    }
+
+    finalScore(state);
+    finalizeButtons();
 }
 
 //TODO: Implement this method.

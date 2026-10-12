@@ -1,4 +1,11 @@
 // Blackjack object
+class Card {
+    constructor(value) {
+        this.value = value;
+    }
+}
+
+
 
 /**
  * Class that represents the Blackjack game.
@@ -36,16 +43,32 @@ class Blackjack {
      * @returns {Card[]} - An array of cards.
      */
     newDeck() {
+        var deck = [];
+        const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 
+            22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 
+            44, 45, 46, 47, 48, 49, 50, 51, 52];
+        
+        for (let value of values) {
+            deck.push(new Card(value));
+        }
+        return deck;
     }
 
-    //TODO: Implement this method
+    // for 1 ate cartas, math.random, shuffle pushdeck i-1
     /**
      * Shuffles the deck of cards.
      * @param {Card[]} deck - The deck of cards to be shuffled.
      * @returns {Card[]} - The shuffled deck.
      */
-    shuffle(deck) {
-
+    shuffle(deck) { 
+        for (let i = deck.length - 1; i > 0; i--) {
+            let newC = deck[i];
+            let oldC = deck[i-1];
+            let temp = newC;
+            newC = oldC;
+            oldC = temp;
+        }
+        return deck;
     }
 
     /**
@@ -79,7 +102,11 @@ class Blackjack {
      * @returns {number} - The total value of the cards.
      */
     getCardsValue(cards) {
-
+        let total = 0;
+        for (let card of cards) {
+            total += card.value;
+        }
+        return total;
     }
 
     //TODO: Implement this method
