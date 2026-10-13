@@ -3,6 +3,18 @@ class Card {
     constructor(value) {
         this.value = value;
     }
+    
+    getSuit() {
+        return Math.floor((this.value - 1) / 13); // Naipe: 0, 1, 2 ou 3
+    }
+    
+    getRank() {
+        return ((this.value - 1) % 13) + 1; // Posição dentro do naipe: 1 (Ás) a 13 (Rei)
+    }
+    
+    getPoints() {
+        return Math.min(this.getRank(), 10);
+    }
 }
 
 
@@ -37,38 +49,38 @@ class Blackjack {
         this.deck = this.shuffle(this.newDeck()); // Create and shuffle a new deck
     }
 
-    //TODO: Implement this method
     /**
      * Creates a new deck of cards.
      * @returns {Card[]} - An array of cards.
      */
     newDeck() {
         var deck = [];
-        const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 
-            22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 
-            44, 45, 46, 47, 48, 49, 50, 51, 52];
-        
-        for (let value of values) {
+
+        for (let value = 1; value <= 52; value++) {
             deck.push(new Card(value));
         }
         return deck;
     }
 
-    // for 1 ate cartas, math.random, shuffle pushdeck i-1
     /**
      * Shuffles the deck of cards.
      * @param {Card[]} deck - The deck of cards to be shuffled.
      * @returns {Card[]} - The shuffled deck.
      */
     shuffle(deck) { 
-        for (let i = deck.length - 1; i > 0; i--) {
-            let newC = deck[i];
-            let oldC = deck[i-1];
-            let temp = newC;
-            newC = oldC;
-            oldC = temp;
+        let indexes = [];
+        for (let i = 0; i < deck.length; i++) {
+            indexes.push(i);
         }
-        return deck;
+
+        let shuffled = [];
+        for (let i = 0; i < deck.length; i++) {
+            let r = Math.floor(Math.random() * indexes.length);
+            let index = indexes[r];
+            shuffled.push(deck[index]);
+            indexes.splice(r, 1);
+        }
+        return shuffled;
     }
 
     /**
@@ -95,7 +107,6 @@ class Blackjack {
         this.dealerTurn = val; // Update the dealer's turn status
     }
 
-    //TODO: Implement this method
     /**
      * Calculates the total value of the provided cards.
      * @param {Card[]} cards - Array of cards to be evaluated.
@@ -103,36 +114,78 @@ class Blackjack {
      */
     getCardsValue(cards) {
         let total = 0;
+        let aces = 0;
+
         for (let card of cards) {
-            total += card.value;
+            total += card.getPoints();
+            if (card.getRank() === 1) {
+                aces++;
+            }
+        }
+
+        while (aces > 0 && total + 10 <= Blackjack.MAX_POINTS) {
+            total += 10;
+            aces--;
         }
         return total;
     }
 
-    //TODO: Implement this method
     /**
      * Executes the dealer's move by adding a card to the dealer's array.
      * @returns {Object} - The game state after the dealer's move.
      */
     dealerMove() {
-
+        let card = this.deck.pop();
+        this.dealerCards.push(card);
+        return this.getGameState();
     }
 
-    //TODO: Implement this method
     /**
      * Executes the player's move by adding a card to the player's array.
      * @returns {Object} - The game state after the player's move.
      */
     playerMove() {
-
+        let card = this.deck.pop();
+        this.playerCards.push(card);
+        return this.getGameState();
     }
 
-    //TODO: Implement this method
     /**
      * Checks the game state based on the dealer's and player's cards.
      * @returns {Object} - The updated game state.
      */
     getGameState() {
+        let playerPoints = this.getCardsValue(this.playerCards);
+        let dealerPoints = this.getCardsValue(this.dealerCards);
 
+        this.state.gameEnded = false;
+        this.state.playerWon = false;
+        this.state.dealerWon = false;
+        this.state.playerBusted = false;
+        this.state.dealerBusted = false;
+
+        if (playerPoints > Blackjack.MAX_POINTS) {
+            this.state.playerBusted = true;
+            this.state.dealerWon = true;
+            this.state.gameEnded = true;
+        } else if (playerPoints === Blackjack.MAX_POINTS) {
+            this.state.playerWon = true;
+            this.state.gameEnded = true;
+        } else if (this.dealerTurn) {
+            if (dealerPoints > Blackjack.MAX_POINTS) {
+                this.state.dealerBusted = true;
+                this.state.playerWon = true;
+                this.state.gameEnded = true;
+            } else if (dealerPoints > playerPoints) {
+                this.state.dealerWon = true;
+                this.state.gameEnded = true;
+            } else if (dealerPoints === playerPoints) {
+                this.state.gameEnded = true;
+            } else if (dealerPoints >= Blackjack.DEALER_MAX_TURN_POINTS) {
+                this.state.playerWon = true;
+                this.state.gameEnded = true;
+            }
+        }
+        return this.state;
     }
 }
