@@ -1,10 +1,27 @@
 body {
-    background: #000000;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/png/website_background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 header {
-    color: white;
+    background : #134302;
+    color: red;
     font-size: 20;
+    border-bottom: 4px solid black;
+}
+
+.how-button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border : 2px solid black;
 }
 
 main {
