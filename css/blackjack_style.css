@@ -14,6 +14,11 @@ header {
     border-bottom: 4px solid black;
 }
 
+.header-logo {
+    width: 250px;
+    height: auto;
+}
+
 .how-button {
     width: 50px;
     height: 50px;
@@ -27,4 +32,35 @@ header {
 main {
     color:white;
     font-size: 10;
+}
+
+@media (max-width: 576px) {
+
+    .header-logo {
+        width: 180px;
+    }
+
+    .help-button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    #game h2,
+    #sec_debug h2 {
+        font-size: 24px;
+    }
+
+    #debug {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    body {
+        background-attachment: scroll;
+    }
 }
