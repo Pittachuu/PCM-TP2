@@ -1,98 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 
-<head>
-  <!-- Character encoding for the document -->
-  <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- Responsive design settings to ensure proper rendering on mobile devices -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack25</title>
+    <link rel="icon" type="image/png" href="img/png/icon_site.png">
 
-  <!-- Compatibility settings for Internet Explorer -->
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap e Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <!-- Favicon for the webpage, displayed in the browser tab -->
-  <link rel="icon" type="image/png" href="img/png/icon_site.png"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- Link to Bootstrap CSS for styling the page -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CSS do Blackjack -->
+    <link rel="stylesheet" href="css/blackjack_style.css">
+  </head>
 
-  <!-- Link to Bootstrap Icons for using icon fonts -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <body>
 
-  <!-- Link to custom stylesheet for additional styles specific to the Blackjack game -->
-  <link rel="stylesheet" href="css/blackjack_style.css">
+    <!-- Cabeçalho -->
+    <header class="site-header">
+        <img src="img/png/logo.png" alt="Blackjack25" class="header-logo">
+    </header>
 
-  <!-- Title of the webpage, displayed in the browser tab -->
-  <title>Blackjack</title>
-</head>
+    <main class="page-content">
 
-<body>
-  <!-- Header section containing the game title -->
-  <header class="text-center">
-    <div class="container topbar px-3 py-1">
-        <img src="img/png/logo.png" alt="Blackjack 25" class="header-logo">
-    </div>
-  </header>
-  <div class="d-flex justify-content-end p-3">
-    <button class="btn btn-primary rounded-circle how-button" type="button">
-        <i class="bi bi-question-lg"></i>
-    </button>
-  </div>
-  <main class="container">
-    <!-- Main game section -->
-    <section id="game">
-      <h2>Dealer</h2> <!-- Subheading for the dealer's section -->
-      <p id="dealer"></p> <!-- Placeholder for displaying dealer's cards -->
+      <!-- Mesa de Blackjack -->
+      <section id="game" class="game-table">
 
-      <h2>Player</h2> <!-- Subheading for the player's section -->
-      <p id="player"></p> <!-- Placeholder for displaying player's cards -->
+        <!-- Fichas decorativas -->
+        <div class="chip-rack">
+          <span class="mini-chip chip-blue"></span>
+          <span class="mini-chip chip-red"></span>
+          <span class="mini-chip chip-green"></span>
+          <span class="mini-chip chip-gold"></span>
+          <span class="mini-chip chip-white"></span>
+        </div>
 
-      <!-- Button for the player to draw a new card -->
-      <button class="btn btn-primary" id="card" type="button" onclick="playerNewCard()">Card</button>
+        <!-- Implementação do JavaScript -->
+        <div class="card-deck" aria-hidden="true"></div>
 
-      <!-- Button for the player to stand (end their turn) -->
-      <button class="btn btn-secondary" id="stand" type="button" onclick="dealerFinish()">Stand</button>
+        <div class="dealer-area">
+          <h2>Dealer</h2>
+          <div id="dealer" class="cards-container"></div>
+        </div>
 
-      <!-- Button to start a new game, initially disabled -->
-      <button class="btn btn-success" id="new_game" type="button" onclick="newGame()" disabled>New Game</button>
-    </section>
+        <div class="player-area">
+          <h2>Player</h2>
+          <!-- Implementação do JavaScript -->
+          <div id="player" class="cards-container"></div>
+        </div>
 
-    <!-- Section to display the game's status and messages -->
-    <section id="game_status">
-      <!-- This will be populated dynamically during the game -->
-    </section>
+        <!-- Estado do jogo -->
+        <!-- Implementação do JavaScript -->
+        <div id="game_status" class="game-status"></div>
 
-    <!-- Debugging section for developers to view game state -->
-    <section id="sec_debug">
-      <h2>Debug:</h2>
-      <p class="text-danger"> Informações de debug para informação sobre o jogo</p>
-      <div class="alert alert-secondary">
-      <p id="debug"></p>
-    </section>
-  </main>
+        <!-- Botões -->
+        <div class="game-controls">
 
-  <!-- Footer section, currently empty -->
-  <footer class="container">
-    <!-- Any footer content can be added here -->
-  </footer>
+          <button class="btn btn-primary"id="card" type="button" onclick="playerNewCard()"> Card </button>
 
-  <!-- Link to Bootstrap's JavaScript bundle for interactive components -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+          <button class="btn btn-secondary" id="stand" type="button" onclick="dealerFinish()"> Stand </button>
 
-  <!-- Link to the JavaScript file containing the Blackjack game logic -->
-  <script src="js/blackjack_object.js"></script>
+          <button class="btn btn-success" id="new_game" type="button" onclick="newGame()" disabled> New Game</button>
 
-  <!-- Link to the JavaScript file for managing game actions and events -->
-  <script src="js/blackjack_manager.js"></script>
+        </div>
 
-  <!-- Execute the newGame function when the window loads to start the game -->
-  <script>
-    window.onload = newGame; // Initializes a new game on page load
-  </script>
-</body>
+            <!-- Botão de ajuda -->
+        <button class="btn btn-primary rounded-circle how-button" type="button">
+          <i class="bi bi-question-lg"></i>
+        </button>
 
+      </section>
+
+        <!-- Debug -->
+        <section id="sec_debug" class="debug-panel">
+            <h2>Debug</h2>
+            <p id="debug"></p>
+        </section>
+
+    </main>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+    <!-- JavaScript do Blackjack -->
+    <script src="js/blackjack_object.js"></script>
+    <script src="js/blackjack_manager.js"></script>
+
+    <script>
+      window.onload = newGame;
+    </script>
+
+  </body>
 </html>

@@ -1,22 +1,86 @@
-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/png/website_background.jpg");
 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+body {
+    margin: 0;
     min-height: 100vh;
+    background: radial-gradient(ellipse at top, #2c1a13 0%, #190e0a 55%, #0e0806 100%);
+    background-attachment: fixed;
+    color: #f8f5ed;
 }
 
+
 header {
-    background : #134302;
-    color: red;
-    font-size: 20;
-    border-bottom: 4px solid black;
+    background: transparent;
+    border: none;
+}
+
+.site-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 15px 15px 20px;
 }
 
 .header-logo {
-    width: 250px;
+    width: 350px;
+    max-width: 85%;
     height: auto;
+}
+
+.page-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 50px;
+}
+
+.game-table {
+    position: relative;
+
+    width: 100%;
+    max-width: 760px;
+    min-height: 800px;
+
+    margin: 0 auto 60px;
+    padding: 95px 35px 80px;
+
+    background: radial-gradient(ellipse at center, #176849 0%, #0b5038 60%, #063a2b 100%);
+
+    border: 9px solid #53311e;
+    border-radius: 25px 25px 50% 50% / 25px 25px 85px 85px;
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dealer-area,
+.player-area {
+    width: 100%;
+    text-align: center;
+}
+
+.dealer-area h2,
+.player-area h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff6e8;
+
+    margin: 0 0 15px;
+}
+
+/* Espaçamento das áreas */
+.dealer-area {
+    min-height: 190px;
+}
+
+.player-area {
+    min-height: 190px;
 }
 
 .how-button {
@@ -44,29 +108,17 @@ main {
 @media (max-width: 576px) {
 
     .header-logo {
-        width: 180px;
-    }
-
-    .help-button {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    main {
-        padding: 15px;
-    }
-
-    #game h2,
-    #sec_debug h2 {
-        font-size: 24px;
-    }
-
-    #debug {
-        font-size: 12px;
+        width: 240px;
+        max-width: 85%;
     }
 
     body {
         background-attachment: scroll;
+    }
+
+    .game-table {
+        min-height: 700px;
+        padding: 80px 15px 60px;
+        border-width: 7px;
     }
 }
