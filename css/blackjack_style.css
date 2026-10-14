@@ -29,6 +29,13 @@ header {
     border : 2px solid black;
 }
 
+.debug.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
 main {
     color:white;
     font-size: 10;
@@ -57,7 +64,6 @@ main {
 
     #debug {
         font-size: 12px;
-        overflow-wrap: anywhere;
     }
 
     body {
