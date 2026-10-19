@@ -141,10 +141,17 @@ header {
 
 .how-button {
     position: absolute;
-    top: 62%;
-    left: 24px;
+    top: 20px;
+    right: 15px;
     display: flex;
     font-size: 26px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border : 2px solid black;
 }
 
 .how-button:hover {
@@ -180,16 +187,6 @@ header {
 .cards-container img {
     width: 90px;               
     height: auto;               
-}
-
-.how-button {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border : 2px solid black;
 }
 
 .debug.container {
@@ -242,5 +239,9 @@ main {
 
     .cards-container img {
         width: 65px;           
+    }
+
+    .how-button {
+        right: 5px;
     }
 }
