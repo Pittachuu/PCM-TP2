@@ -55,6 +55,108 @@ header {
     align-items: center;
 }
 
+
+/* Suporte das fichas decorativas */
+.game-table .chip-rack {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 10px;
+
+    padding: 12px 22px;
+
+    background-color: #17110f;
+    border-radius: 0 0 14px 14px;
+
+}
+
+.mini-chip {
+    width: 28px;
+    height: 40px;
+
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    background: repeating-linear-gradient(to bottom, white 0px,white 3px, transparent 3px, transparent 9px), var(--chip-color);
+}
+
+/* Cores das fichas */
+.chip-blue  { --chip-color: #155bd5; }
+.chip-red   { --chip-color: #c91e35; }
+.chip-green { --chip-color: #158650; }
+.chip-gold  { --chip-color: #e1a83c; }
+.chip-white { --chip-color: #e9e5da; }
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+
+/* Aspeto geral dos botões */
+#card,
+#stand,
+#new_game {
+    width: 92px;
+    height: 92px;
+
+    padding: 0;
+    border: 3px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+
+    background:radial-gradient(circle closest-side, var(--chip-color) 0%, var(--chip-color) 73%, #ffffff 74%, #ffffff 77%, transparent 78%),
+        repeating-conic-gradient( from -8deg, #f1eee7 0deg 12deg, var(--chip-color) 12deg 30deg);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.15;
+
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#card {
+    --chip-color: #155bd5;
+}
+
+#stand {
+    --chip-color: #c91e35;
+}
+
+#new_game {
+    --chip-color: #16794c;
+}
+
+#card:hover,
+#stand:hover,
+#new_game:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.1);
+}
+
+.how-button {
+    position: absolute;
+    top: 62%;
+    left: 24px;
+    display: flex;
+    font-size: 26px;
+}
+
+.how-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
 .dealer-area,
 .player-area {
     width: 100%;
@@ -95,6 +197,18 @@ header {
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;
+}
+
+.debug-panel {
+    background: rgba(0, 0, 0, 0.65);
+
+    border-left: 4px solid #d6a64a;
+    border-radius: 0 12px 12px 0;
+
+    padding: 20px 25px;
+    margin-top: 40px;
+
+    color: #fff6e8;
 }
 
 #debug {
