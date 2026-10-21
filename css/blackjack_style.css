@@ -14,10 +14,27 @@ header {
     padding: 15px 15px 20px;
 }
 
-.header-logo {
-    width: 350px;
+.bottom-bar {
+    background: linear-gradient(90deg, #d6a64a 0%,  #b9742f 50%,  #e35a0b 100%);
+    border: none;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.direitos-reservados {  
+    padding: 10px;
+    color: #ffffff;
+    font-family: "Comic Sans MS", sans-serif;
+    text-align: left;
+}
+
+.header-logo, .footer-logo {
+    width: 200px;
     max-width: 85%;
     height: auto;
+    padding: 10px;
 }
 
 .page-content {
