@@ -137,12 +137,18 @@ function playerNewCard() {
 /**
  * Finishes the dealer's turn.
  */
-function dealerFinish() {
-    if (!game || game.state.gameEnded) {
+
+async function dealerFinish() {
+    if (!game || game.state.gameEnded || game.dealerTurn) {
         return;
     }
 
     game.setDealerTurn(true);
+
+    // Desativa os botões durante a jogada do Dealer
+    document.getElementById('card').disabled = true;
+    document.getElementById('stand').disabled = true;
+
     let state = game.getGameState();
 
     while (!state.gameEnded) {
@@ -152,6 +158,7 @@ function dealerFinish() {
     finalScore(state);
     finalizeButtons();
 }
+
 
 /**
  * Prints the card in the graphical interface.
@@ -171,5 +178,23 @@ function printCard(element, card, replace = false) {
         element.replaceChild(img, element.children[1]);
     } else {
         element.appendChild(img);
+        shakeDeck();
     }
+}
+
+function shakeDeck() {
+    const deck = document.querySelector('.card-deck');
+
+    if (!deck) {
+        return;
+    }
+
+    // Remove a animação anterior
+    deck.classList.remove('deck-shake');
+
+    // Permite reiniciar a animação
+    void deck.offsetWidth;
+
+    // Ativa novamente a animação
+    deck.classList.add('deck-shake');
 }
