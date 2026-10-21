@@ -138,17 +138,11 @@ function playerNewCard() {
  * Finishes the dealer's turn.
  */
 
-async function dealerFinish() {
+function dealerFinish() {
     if (!game || game.state.gameEnded || game.dealerTurn) {
         return;
     }
-
     game.setDealerTurn(true);
-
-    // Desativa os botões durante a jogada do Dealer
-    document.getElementById('card').disabled = true;
-    document.getElementById('stand').disabled = true;
-
     let state = game.getGameState();
 
     while (!state.gameEnded) {
