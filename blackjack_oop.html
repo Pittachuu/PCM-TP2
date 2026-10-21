@@ -147,8 +147,8 @@
 
                 <h1 class="modal-title text-white"> Blackjack: How To Play </h1>
 
-                <button type="button" class="por btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#modalTutorialPT"> PT</button>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                <button type="button" class="por btn btn-primary ms-auto me-3" data-bs-toggle="modal" data-bs-target="#modalTutorialPT"> PT</button>
+                <button type="button" class="btn-close btn-close-white ms-0" data-bs-dismiss="modal"></button>
               </div>
 
               <div class="modal-body">
@@ -224,7 +224,12 @@
     <script src="js/blackjack_manager.js"></script>
 
     <script>
-      window.onload = newGame;
+        window.onload = () => {
+          newGame();
+
+          const modal = new bootstrap.Modal(document.getElementById('modalTutorialPT'));
+          modal.show();
+        }
     </script>
   </body>
 </html>
