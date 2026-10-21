@@ -11,15 +11,17 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px 15px 20px;
+    padding: 15px 15px;
 }
 
 .bottom-bar {
-    background: linear-gradient(90deg, #d6a64a 0%,  #b9742f 50%,  #e35a0b 100%);
-    border: none;
-    min-height: 50px;
+    width: 100%;
+    min-height: 90px;
+
+    padding: 20px 30px;
+
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -30,9 +32,9 @@ header {
     text-align: left;
 }
 
-.header-logo, .footer-logo {
-    width: 200px;
-    max-width: 85%;
+.header-logo {
+    width: 300px;
+    max-width: 100%;
     height: auto;
     padding: 10px;
 }
@@ -185,6 +187,33 @@ header {
     margin: 10px 0 5px;
 }
 
+.table-divider {
+    width: 85%;
+    max-width: 600px;
+    margin: 35px auto 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-shrink: 0;
+}
+
+.divider-line {
+    flex: 1;
+    max-width: 160px;
+    height: 2px;
+    background-color: #d9b45e;
+}
+
+.divider-suits {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    color: #d9b45e;
+    font-size: 28px;
+}
+
 .player-area, .dealer-area {
     text-align: center;
     width: 100%;
@@ -203,7 +232,10 @@ header {
 
 .cards-container img {
     width: 90px;               
-    height: auto;               
+    height: auto;
+    transform-origin: center bottom;
+
+    animation: card-entry 0.65s ease-out, card-glow 1s ease-out;               
 }
 
 .debug.container {
@@ -230,9 +262,53 @@ header {
     font-size: 20px;
 }
 
+.site-footer {
+    width: 100%;
+
+    background: linear-gradient(180deg, #241610 0%, #130b09 100%);
+
+    border-top: 2px solid #a9824c;
+
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.footer-logo {
+    width: 140px;
+    max-width: 40%;
+    padding: 0;
+    opacity: 0.9;
+}
+
 main {
     color:white;
     font-size: 10;
+}
+
+@keyframes card-entry {
+
+    70% {
+        opacity: 1;
+        transform: translateY(4px)
+                   rotate(2deg)
+                   scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+                   rotate(0deg)
+                   scale(1);
+    }
+}
+
+@keyframes card-glow {
+    0%, 100% {
+        filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.3));
+    }
+
+    45% {
+        filter: drop-shadow(0 0 9px rgba(255, 215, 100, 0.9));
+    }
 }
 
 @media (max-width: 576px) {
@@ -260,5 +336,38 @@ main {
 
     .how-button {
         right: 5px;
+    }
+
+    .table-divider {
+        width: 95%;
+        gap: 12px;
+        margin: 25px auto 35px;
+    }
+
+    .divider-suits {
+        gap: 10px;
+        font-size: 21px;
+    }
+
+    .divider-line {
+        height: 1px;
+    }
+
+    .bottom-bar {
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+
+        padding: 20px 15px;
+    }
+
+    .direitos-reservados {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 120px;
+        max-width: 80%;
     }
 }
