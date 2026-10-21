@@ -278,5 +278,25 @@
           modal.show();
         }
     </script>
+
+    <script>
+      const baralho = document.querySelector('.card-deck');
+      const botaoCard = document.getElementById('card');
+
+      botaoCard.addEventListener('click', () => {
+          baralho.classList.remove('deck-shake');
+
+          // Permite reiniciar a animação em cliques seguidos
+          void baralho.offsetWidth;
+
+          baralho.classList.add('deck-shake');
+      });
+
+      baralho.addEventListener('animationend', (event) => {
+          if (event.animationName === 'deckShake') {
+              baralho.classList.remove('deck-shake');
+          }
+      });
+  </script>
   </body>
 </html>
