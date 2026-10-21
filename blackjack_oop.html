@@ -33,11 +33,11 @@
 
         <!-- Fichas decorativas -->
         <div class="chip-rack">
-          <span class="mini-chip chip-blue"></span>
-          <span class="mini-chip chip-red"></span>
-          <span class="mini-chip chip-green"></span>
-          <span class="mini-chip chip-gold"></span>
-          <span class="mini-chip chip-white"></span>
+          <div class="mini-chip chip-blue"></div>
+          <div class="mini-chip chip-red"></div>
+          <div class="mini-chip chip-green"></div>
+          <div class="mini-chip chip-gold"></div>
+          <div class="mini-chip chip-white"></div>
         </div>
 
         <!-- Implementação do JavaScript -->
@@ -72,10 +72,133 @@
         </div>
 
             <!-- Botão de ajuda -->
-        <button class="btn btn-primary rounded-circle how-button" type="button">
+        <button class="btn btn-primary rounded-circle how-button" type="button" data-bs-toggle="modal" data-bs-target="#modalTutorialPT">
           <i class="bi bi-question-lg"></i>
         </button>
 
+        <div class="modal fade" id="modalTutorialPT" tabindex="-1">
+
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content bg-black">
+
+              <div class="modal-header">
+
+                <h1 class="modal-title text-white"> Blackjack: Como Jogar </h1>
+
+                <button type="button" class="eng btn btn-primary justify-content-right" data-bs-toggle="modal" data-bs-target="#modalTutorialEN"> EN</button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+              </div>
+
+              <div class="modal-body">
+
+                <h6 class="text-warning">Objetivo</h6>
+                <p>
+                  Chegar o mais perto possível de <span class="fw-bold">25</span> pontos sem ultrapassar esse valor.
+                  Ganhas se ficares com mais pontos do que o dealer, ou se o dealer passar de 25.
+                </p>
+
+                <h6 class="text-warning"> Valor das Cartas</h6>
+                <ul>
+                  <li><span class="fw-bold">2 a 10</span>: valem o número que têm.</li>
+                  <li><span class="fw-bold">J, Q e K</span>: valem 10 pontos cada.</li>
+                  <li><span class="fw-bold">Ás</span>: vale 11 ou 1, conforme der mais jeito para não passares de 25.</li>
+                </ul>
+
+                <h6 class="text-warning">Como Jogar</h6>
+
+                <ol>
+                  <li>No início, tu e o dealer recebem cartas.</li>
+                  <li>Carrega em <span class="fw-bold">Card</span> para pedires mais uma carta.</li>
+                  <li>Carrega em <span class="fw-bold">Stand</span> quando quiseres parar. Depois disso, é o dealer a jogar.</li>
+                  <li>No fim, compara-se a pontuação e o resultado aparece no ecrã.</li>
+                </ol>
+
+                <h6 class="text-warning">Rebentar (bust)</h6>
+                <p>
+                  Se a tua pontuação passar de <span class="fw-bold">25</span>, perdes logo a ronda,
+                  mesmo que o dealer ainda não tenha jogado.
+                </p>
+
+                <h6 class="text-warning">O dealer</h6>
+                <p> O dealer joga sempre depois de ti e segue regras fixas: continua a pedir cartas
+                  enquanto tiver pouca pontuação e pára quando chega a um valor mínimo.
+                </p>
+
+                <h6 class="text-warning">Nova ronda</h6>
+                <p> Quando a ronda termina, o botão <span class="fw-bold">New Game</span> é ativado.
+                  Carrega nele para limpar a mesa e começar de novo.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="modal fade" id="modalTutorialEN" tabindex="-1">
+
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content bg-black">
+
+              <div class="modal-header">
+
+                <h1 class="modal-title text-white"> Blackjack: How To Play </h1>
+
+                <button type="button" class="por btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTutorialPT"> PT</button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+              </div>
+
+              <div class="modal-body">
+
+                <h6 class="text-warning">Objective</h6>
+                <p>
+                  Chegar o mais perto possível de <span class="fw-bold">25</span> pontos sem ultrapassar esse valor.
+                  Ganhas se ficares com mais pontos do que o dealer, ou se o dealer passar de 25.
+                </p>
+
+                <h6 class="text-warning">Card Values</h6>
+                <ul>
+                  <li><span class="fw-bold">2 a 10</span>: valem o número que têm.</li>
+                  <li><span class="fw-bold">J, Q e K</span>: valem 10 pontos cada.</li>
+                  <li><span class="fw-bold">Ás</span>: vale 11 ou 1, conforme der mais jeito para não passares de 25.</li>
+                </ul>
+
+                <h6 class="text-warning">How to Play</h6>
+
+                <ol>
+                  <li>No início, tu e o dealer recebem cartas.</li>
+                  <li>Carrega em <span class="fw-bold">Card</span> para pedires mais uma carta.</li>
+                  <li>Carrega em <span class="fw-bold">Stand</span> quando quiseres parar. Depois disso, é o dealer a jogar.</li>
+                  <li>No fim, compara-se a pontuação e o resultado aparece no ecrã.</li>
+                </ol>
+
+                <h6 class="text-warning">Bust</h6>
+                <p>
+                  Se a tua pontuação passar de <span class="fw-bold">25</span>, perdes logo a ronda,
+                  mesmo que o dealer ainda não tenha jogado.
+                </p>
+
+                <h6 class="text-warning">The Dealer</h6>
+                <p> O dealer joga sempre depois de ti e segue regras fixas: continua a pedir cartas
+                  enquanto tiver pouca pontuação e pára quando chega a um valor mínimo.
+                </p>
+
+                <h6 class="text-warning">New Round</h6>
+                <p> Quando a ronda termina, o botão <span class="fw-bold">New Game</span> é ativado.
+                  Carrega nele para limpar a mesa e começar de novo.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
       </section>
 
         <!-- Debug -->
@@ -83,8 +206,12 @@
             <h2>Debug</h2>
             <p id="debug"></p>
         </section>
-
-    </main>
+        
+        <footer>
+              
+        </footer>
+        
+      </main>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -98,6 +225,5 @@
     <script>
       window.onload = newGame;
     </script>
-
   </body>
 </html>
