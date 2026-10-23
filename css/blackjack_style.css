@@ -162,7 +162,6 @@ header {
     position: absolute;
     top: 20px;
     right: 15px;
-    display: flex;
     font-size: 26px;
     width: 50px;
     height: 50px;
@@ -179,10 +178,7 @@ header {
 }
 
 #dealer, #player {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 28px;
     font-weight: bold;
-    color: #fff6e8;
 
     margin: 10px 0 5px;
 }
@@ -275,13 +271,6 @@ header {
 
 .card-deck::after {
     transform: translate(4px, -3px) rotate(4deg);
-}
-
-.debug.container {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
 }
 
 .debug-panel {
@@ -379,16 +368,10 @@ main {
         max-width: 85%;
     }
 
-    body {
-        background-attachment: scroll;
-    }
-
     .game-table {
         min-height: 700px;
         padding: 80px 15px 60px;
         border-width: 7px;
-        display: flex;
-        align-items: center;
     }
 
     .cards-container img {

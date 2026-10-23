@@ -183,12 +183,9 @@ function shakeDeck() {
         return;
     }
 
-    // Remove a animação anterior
     deck.classList.remove('deck-shake');
 
-    // Permite reiniciar a animação
     void deck.offsetWidth;
 
-    // Ativa novamente a animação
     deck.classList.add('deck-shake');
 }

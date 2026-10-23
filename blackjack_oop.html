@@ -25,7 +25,7 @@
   <body>
 
     <!-- Cabeçalho -->
-    <header class="site-header">
+    <header>
         <img src="img/png/logo.png" alt="Blackjack25" class="header-logo">
     </header>
 
@@ -81,7 +81,7 @@
         <!-- Botões -->
         <div class="game-controls">
 
-          <button class="btn btn-primary"id="card" type="button" onclick="playerNewCard()"> Card </button>
+          <button class="btn btn-primary" id="card" type="button" onclick="playerNewCard()"> Card </button>
 
           <button class="btn btn-secondary" id="stand" type="button" onclick="dealerFinish()"> Stand </button>
 
@@ -104,7 +104,7 @@
 
                 <h1 class="modal-title text-white"> Blackjack: Como Jogar </h1>
 
-                <button type="button" class="eng btn btn-primary ms-auto me-3 " data-bs-toggle="modal" data-bs-target="#modalTutorialEN"> EN</button>
+                <button type="button" class="btn btn-primary ms-auto me-3 " data-bs-toggle="modal" data-bs-target="#modalTutorialEN"> EN</button>
                 <button type="button" class="btn-close btn-close-white ms-0" data-bs-dismiss="modal"></button>
               </div>
 
@@ -178,7 +178,7 @@
 
                 <h1 class="modal-title text-white"> Blackjack: How To Play </h1>
 
-                <button type="button" class="por btn btn-primary ms-auto me-3" data-bs-toggle="modal" data-bs-target="#modalTutorialPT"> PT</button>
+                <button type="button" class="btn btn-primary ms-auto me-3" data-bs-toggle="modal" data-bs-target="#modalTutorialPT"> PT</button>
                 <button type="button" class="btn-close btn-close-white ms-0" data-bs-dismiss="modal"></button>
               </div>
 
@@ -226,7 +226,7 @@
                 </p>
 
                 <h6 class="text-warning">
-                  <i class="bi bi-arrow-clockwise text-success text-white me-2"></i>New Round
+                  <i class="bi bi-arrow-clockwise text-success me-2"></i>New Round
                 </h6>
                 <p> When the round ends, the <span class="fw-bold">New Game</span> button is enabled.
                   Click it to clear the table and start again.
@@ -278,25 +278,5 @@
           modal.show();
         }
     </script>
-
-    <script>
-      const baralho = document.querySelector('.card-deck');
-      const botaoCard = document.getElementById('card');
-
-      botaoCard.addEventListener('click', () => {
-          baralho.classList.remove('deck-shake');
-
-          // Permite reiniciar a animação em cliques seguidos
-          void baralho.offsetWidth;
-
-          baralho.classList.add('deck-shake');
-      });
-
-      baralho.addEventListener('animationend', (event) => {
-          if (event.animationName === 'deckShake') {
-              baralho.classList.remove('deck-shake');
-          }
-      });
-  </script>
   </body>
 </html>
