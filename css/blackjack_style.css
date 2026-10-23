@@ -234,8 +234,6 @@ header {
     animation: card-entry 0.65s ease-out, card-glow 1s ease-out;               
 }
 
-
-/* Baralho de cartas */
 .game-table .card-deck {
     position: absolute;
     top: 210px;
@@ -271,6 +269,143 @@ header {
 
 .card-deck::after {
     transform: translate(4px, -3px) rotate(4deg);
+}
+
+.game-table .result-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    z-index: 10;
+}
+
+.result-overlay[hidden] {
+    display: none !important;
+}
+
+.result-panel {
+    width: 100%;
+    max-width: 420px;
+    max-height: 90%;
+    overflow-y: auto;
+    position: relative;
+    padding: 35px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: linear-gradient(145deg, #291a13 0%, #140d0a 100%);
+
+    border: 3px solid #c9a157;
+    border-radius: 18px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+
+    text-align: center;
+    color: #fff6e8;
+
+    animation: result-appear 0.5s ease-out;
+}
+
+.result-icon {
+    font-size: 55px;
+    color: var(--result-color, #e6c16d);
+}
+
+#result_title {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    color: var(--result-color, #e6c16d);
+}
+
+#result_message {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.5;
+    color: #dfd0b9;
+}
+
+.result-scores {
+    width: 100%;
+
+    display: flex;
+    gap: 15px;
+
+    margin: 10px 0;
+}
+
+.result-score {
+    flex: 1;
+
+    padding: 15px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(201, 161, 87, 0.35);
+    border-radius: 10px;
+}
+
+.result-score span {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    color: #dbc7ad;
+}
+
+.result-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    background: transparent;
+    border: none;
+
+    color: #dbc7ad;
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.result-close:hover {
+    color: #e45858;
+    transform: scale(1.2);
+}
+
+#result_player_score {
+    color: #7bdba4;
+}
+
+.result-overlay.bust {
+    --result-color: #e45858;
+}
+
+.result-overlay.defeat {
+    --result-color: #d97565;
+}
+
+.result-overlay.draw {
+    --result-color: #c0c6c9;
 }
 
 .debug-panel {
@@ -309,7 +444,6 @@ header {
 
 main {
     color:white;
-    font-size: 10;
 }
 
 @keyframes card-entry {
@@ -336,6 +470,18 @@ main {
 
     45% {
         filter: drop-shadow(0 0 9px rgba(255, 215, 100, 0.9));
+    }
+}
+
+@keyframes result-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -404,6 +550,22 @@ main {
 
     .divider-line {
         height: 1px;
+    }
+
+    .game-table .result-overlay {
+        padding: 12px;
+    }
+
+    .result-panel {
+        padding: 25px 15px;
+    }
+
+    .result-icon {
+        font-size: 40px;
+    }
+
+    #result_title {
+        font-size: 26px;
     }
 
     .bottom-bar {

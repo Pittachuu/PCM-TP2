@@ -43,6 +43,10 @@ function clearPage() {
  * Starts a new game of Blackjack.
  */
 function newGame() {
+    const overlay = document.getElementById('result_overlay');
+
+    overlay.hidden = true;
+    overlay.classList.remove('victory', 'bust', 'defeat', 'draw');
     game = new Blackjack(); // Creates a new instance of the Blackjack game
     debug(game); // Displays the current state of the game for debugging
     clearPage();
@@ -60,23 +64,67 @@ function newGame() {
  * @param {Object} state - The current state of the game.
  */
 function finalScore(state) {
-    let message = '';
 
-    if (state.playerWon) {
-        message = 'Player wins!';
+    const overlay = document.getElementById('result_overlay');
+    const title = document.getElementById('result_title');
+    const icon = document.getElementById('result_icon');
+    const message = document.getElementById('result_message');
+    const playerPoints = game.getCardsValue(game.getPlayerCards());
+    const dealerPoints = game.getCardsValue(game.getDealerCards());
+
+    document.getElementById('result_player_score').textContent = playerPoints;
+    document.getElementById('result_dealer_score').textContent = dealerPoints;
+
+    document.getElementById('result_player_score').textContent = playerPoints;
+    document.getElementById('result_dealer_score').textContent = dealerPoints;
+
+    document.getElementById('dealer_title').textContent = 'Dealer - ' + dealerPoints;
+
+    overlay.classList.remove('victory', 'bust', 'defeat', 'draw');
+
+    if (state.playerBusted) {
+
+        overlay.classList.add('bust');
+
+        title.textContent = 'BUST!';
+        message.textContent = 'You went over 25!';
+        icon.className = 'fa-solid fa-explosion result-icon';
+
+    } else if (state.playerWon) {
+
+        overlay.classList.add('victory');
+
+        title.textContent = 'VICTORY!';
+        icon.className = 'fa-solid fa-trophy result-icon';
+
+        if (playerPoints === 25) {
+            message.textContent = 'Perfect score! You reached 25!';
+        } else if (state.dealerBusted) {
+            message.textContent = 'The dealer went over 25!';
+        } else {
+            message.textContent = 'You beat the dealer!';
+        }
+
     } else if (state.dealerWon) {
-        message = 'Dealer wins!';
+
+        overlay.classList.add('defeat');
+
+        title.textContent = 'DEALER WINS!';
+        message.textContent = 'Better luck next round!';
+        icon.className = 'fa-solid fa-crown result-icon';
+
     } else {
-        message = 'Draw!';
+
+        overlay.classList.add('draw');
+
+        title.textContent = 'DRAW!';
+        message.textContent = 'Both player and dealer have the same score!';
+        icon.className = 'fa-solid fa-scale-balanced result-icon';
     }
 
-    let playerPoints = game.getCardsValue(game.getPlayerCards());
-    let dealerPoints = game.getCardsValue(game.getDealerCards());
+    document.getElementById('game_status').textContent = '';
 
-    document.getElementById('dealer_title').innerHTML = 'Dealer - ' + dealerPoints;
-
-    message = message + ' Player: ' + playerPoints + ' | Dealer: ' + dealerPoints;
-    document.getElementById('game_status').innerHTML = message;
+    overlay.hidden = false;
 }
 
 /**
@@ -188,4 +236,8 @@ function shakeDeck() {
     void deck.offsetWidth;
 
     deck.classList.add('deck-shake');
+}
+
+function closeResult() {
+    document.getElementById('result_overlay').hidden = true;
 }

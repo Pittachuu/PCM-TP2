@@ -31,10 +31,8 @@
 
     <main class="page-content">
 
-      <!-- Mesa de Blackjack -->
       <section id="game" class="game-table">
 
-        <!-- Fichas decorativas -->
         <div class="chip-rack">
           <div class="mini-chip chip-blue"></div>
           <div class="mini-chip chip-red"></div>
@@ -43,7 +41,6 @@
           <div class="mini-chip chip-white"></div>
         </div>
 
-        <!-- Implementação do JavaScript -->
         <div class="card-deck"></div>
 
         <div class="dealer-area">
@@ -68,17 +65,11 @@
 
         <div class="player-area">
           <h2 id="player_title">Player</h2>
-          <!-- Implementação do JavaScript -->
-          <div id="player" class="cards-container">
-            <!-- Aqui aparecem as cartas do jogador -->
-          </div>
+          <div id="player" class="cards-container"></div>
         </div>
 
-        <!-- Estado do jogo -->
-        <!-- Implementação do JavaScript -->
         <div id="game_status" class="game-status"></div>
-
-        <!-- Botões -->
+        
         <div class="game-controls">
 
           <button class="btn btn-primary" id="card" type="button" onclick="playerNewCard()"> Card </button>
@@ -89,7 +80,6 @@
 
         </div>
 
-            <!-- Botão de ajuda -->
         <button class="btn btn-primary rounded-circle how-button" type="button" data-bs-toggle="modal" data-bs-target="#modalTutorialPT">
           <i class="bi bi-question-lg"></i>
         </button>
@@ -239,6 +229,38 @@
           </div>
 
         </div>
+
+        <div id="result_overlay" class="result-overlay" role="dialog" hidden>
+
+          <div class="result-panel" tabindex="-1">
+            <button class="result-close" type="button" onclick="closeResult()">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <i id="result_icon" class="fa-solid fa-trophy result-icon"></i>
+
+            <h2 id="result_title"></h2>
+
+            <p id="result_message"></p>
+
+            <div class="result-scores">
+
+              <div class="result-score">
+                <span>PLAYER</span>
+                <span id="result_player_score"></span>
+              </div>
+
+              <div class="result-score">
+                <span>DEALER</span>
+                <span id="result_dealer_score"></span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
         <!-- Debug -->
