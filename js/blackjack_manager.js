@@ -231,11 +231,9 @@ function shakeDeck() {
         return;
     }
 
-    deck.classList.remove('deck-shake');
+    deck.style.animation = 'none';
 
-    void deck.offsetWidth;
-
-    deck.classList.add('deck-shake');
+    setTimeout(function() { deck.style.animation = 'deckShake 0.5s ease-in-out';}, 30);
 }
 
 function closeResult() {
