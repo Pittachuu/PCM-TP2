@@ -75,16 +75,11 @@ function finalScore(state) {
     document.getElementById('result_player_score').textContent = playerPoints;
     document.getElementById('result_dealer_score').textContent = dealerPoints;
 
-    document.getElementById('result_player_score').textContent = playerPoints;
-    document.getElementById('result_dealer_score').textContent = dealerPoints;
-
     document.getElementById('dealer_title').textContent = 'Dealer - ' + dealerPoints;
-
-    overlay.classList.remove('victory', 'bust', 'defeat', 'draw');
 
     if (state.playerBusted) {
 
-        overlay.classList.add('bust');
+        overlay.className = 'result-overlay bust';
 
         title.textContent = 'BUST!';
         message.textContent = 'You went over 25!';
@@ -92,7 +87,7 @@ function finalScore(state) {
 
     } else if (state.playerWon) {
 
-        overlay.classList.add('victory');
+        overlay.className = 'result-overlay victory';
 
         title.textContent = 'VICTORY!';
         icon.className = 'fa-solid fa-trophy result-icon';
@@ -107,7 +102,7 @@ function finalScore(state) {
 
     } else if (state.dealerWon) {
 
-        overlay.classList.add('defeat');
+        overlay.className = 'result-overlay defeat';
 
         title.textContent = 'DEALER WINS!';
         message.textContent = 'Better luck next round!';
@@ -115,7 +110,7 @@ function finalScore(state) {
 
     } else {
 
-        overlay.classList.add('draw');
+        overlay.className = 'result-overlay draw';
 
         title.textContent = 'DRAW!';
         message.textContent = 'Both player and dealer have the same score!';
