@@ -46,7 +46,6 @@ function newGame() {
     const overlay = document.getElementById('result_overlay');
 
     overlay.hidden = true;
-    overlay.classList.remove('victory', 'bust', 'defeat', 'draw');
     game = new Blackjack(); // Creates a new instance of the Blackjack game
     debug(game); // Displays the current state of the game for debugging
     clearPage();
