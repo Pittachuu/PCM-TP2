@@ -191,6 +191,8 @@ function dealerFinish() {
         state = dealerNewCard();
     }
 
+    debug(game)
+
     finalScore(state);
     finalizeButtons();
 }
