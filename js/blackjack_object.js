@@ -1,17 +1,44 @@
 // Blackjack object
+
+/**
+ * Class that represents a playing card in a standard 52-card deck.
+ * Each card is identified by a single number from 1 to 52, which encodes
+ * both its suit and its rank.
+ */
 class Card {
+    /**
+     * Creates a new card.
+     *
+     * @param {number} value - The card identifier, from 1 to 52.
+     */
     constructor(value) {
         this.value = value;
     }
     
+    /**
+     * Gets the suit of the card.
+     *
+     * @returns {number} The suit index: 0, 1, 2 or 3.
+     */
     getSuit() {
         return Math.floor((this.value - 1) / 13); // Naipe: 0, 1, 2 ou 3
     }
     
+    /**
+     * Gets the rank of the card within its suit.
+     *
+     * @returns {number} The rank, from 1 (Ace) to 13 (King).
+     */
     getRank() {
         return ((this.value - 1) % 13) + 1; // Posição dentro do naipe: 1 (Ás) a 13 (Rei)
     }
     
+     /**
+     * Gets the points the card is worth in the game.
+     * Face cards (Jack, Queen and King) are capped at 10 points.
+     *
+     * @returns {number} The card points, from 1 to 10.
+     */
     getPoints() {
         return Math.min(this.getRank(), 10);
     }

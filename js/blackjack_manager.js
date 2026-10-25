@@ -218,6 +218,15 @@ function printCard(element, card, replace = false) {
     }
 }
 
+/**
+ * Makes the card deck "shake" using a CSS animation.
+ * Looks for the element with the "card-deck" class; if it does not exist,
+ * nothing happens. To be able to replay the animation, it first removes it
+ * and then applies it again after 30 ms.
+ *
+ * @function shakeDeck
+ * @returns {void} Does not return a value.
+ */
 function shakeDeck() {
     const deck = document.querySelector('.card-deck');
 
@@ -230,6 +239,12 @@ function shakeDeck() {
     setTimeout(function() { deck.style.animation = 'deckShake 0.5s ease-in-out';}, 30);
 }
 
+/**
+ * Closes the result screen by hiding the element with the id "result_overlay".
+ *
+ * @function closeResult
+ * @returns {void} Does not return a value.
+ */
 function closeResult() {
     document.getElementById('result_overlay').hidden = true;
 }

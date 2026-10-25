@@ -17,9 +17,7 @@ header {
 .bottom-bar {
     width: 100%;
     min-height: 90px;
-
     padding: 20px 30px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,40 +46,30 @@ header {
 
 .game-table {
     position: relative;
-
     width: 100%;
     max-width: 760px;
     min-height: 800px;
-
     margin: 0 auto 60px;
     padding: 95px 35px 80px;
-
     background: radial-gradient(ellipse at center, #176849 0%, #0b5038 60%, #063a2b 100%);
-
     border: 9px solid #53311e;
     border-radius: 25px 25px 50% 50% / 25px 25px 85px 85px;
     box-shadow: 0 18px 32px rgba(0, 0, 0, 0.35);
-
     overflow: hidden;
-
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 
-/* Suporte das fichas decorativas */
 .game-table .chip-rack {
     position: absolute;
     top: 15px;
     left: 50%;
     transform: translateX(-50%);
-
     display: flex;
     gap: 10px;
-
     padding: 12px 22px;
-
     background-color: #17110f;
     border-radius: 0 0 14px 14px;
 
@@ -90,50 +78,54 @@ header {
 .mini-chip {
     width: 28px;
     height: 40px;
-
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.4);
-
     background: repeating-linear-gradient(to bottom, white 0px,white 3px, transparent 3px, transparent 9px), var(--chip-color);
 }
 
-/* Cores das fichas */
-.chip-blue  { --chip-color: #155bd5; }
-.chip-red   { --chip-color: #c91e35; }
-.chip-green { --chip-color: #158650; }
-.chip-gold  { --chip-color: #e1a83c; }
-.chip-white { --chip-color: #e9e5da; }
+.chip-blue  { 
+    --chip-color: #155bd5; 
+}
+
+.chip-red   { 
+    --chip-color: #c91e35; 
+}
+
+.chip-green { 
+    --chip-color: #158650; 
+}
+
+.chip-gold  { 
+    --chip-color: #e1a83c; 
+}
+
+.chip-white { 
+    --chip-color: #e9e5da; 
+}
 
 .game-controls {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
-
     width: 100%;
     margin-top: 15px;
     margin-bottom: 20px;
 }
 
-
-/* Aspeto geral dos botões */
 #card,
 #stand,
 #new_game {
     width: 92px;
     height: 92px;
-
     padding: 0;
     border: 3px solid rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-
-    background:radial-gradient(circle closest-side, var(--chip-color) 0%, var(--chip-color) 73%, #ffffff 74%, #ffffff 77%, transparent 78%),
-        repeating-conic-gradient( from -8deg, #f1eee7 0deg 12deg, var(--chip-color) 12deg 30deg);
+    background:radial-gradient(circle closest-side, var(--chip-color) 0%, var(--chip-color) 73%, #ffffff 74%, #ffffff 77%, transparent 78%), repeating-conic-gradient( from -8deg, #f1eee7 0deg 12deg, var(--chip-color) 12deg 30deg);
     color: white;
     font-size: 14px;
     font-weight: bold;
     line-height: 1.15;
-
     box-shadow: 0 5px 9px rgba(0, 0, 0, 0.35);
     cursor: pointer;
     transition: transform 0.2s ease, filter 0.2s ease;
@@ -179,7 +171,6 @@ header {
 
 #dealer, #player {
     font-weight: bold;
-
     margin: 10px 0 5px;
 }
 
@@ -205,7 +196,6 @@ header {
     display: flex;
     align-items: center;
     gap: 16px;
-
     color: #d9b45e;
     font-size: 28px;
 }
@@ -222,7 +212,6 @@ header {
     flex-wrap: wrap;           
     justify-content: center;    
     gap: 8px;
-
     padding: 10px;
 }
 
@@ -230,7 +219,6 @@ header {
     width: 90px;               
     height: auto;
     transform-origin: center bottom;
-
     animation: card-entry 0.65s ease-out, card-glow 1s ease-out;               
 }
 
@@ -238,27 +226,20 @@ header {
     position: absolute;
     top: 210px;
     left: 30px;
-
     width: 80px;
     height: 112px;
-
     background: url("../img/svg/card_back.svg") center / contain no-repeat;
-
     transform: rotate(-8deg);
     transform-origin: center bottom;
-
     filter: drop-shadow(4px 6px 5px rgba(0, 0, 0, 0.4));
-
     z-index: 3;
 }
 
 .card-deck::before,
 .card-deck::after {
     content: "";
-
     position: absolute;
     inset: 0;
-
     background: url("../img/svg/card_back.svg") center / contain no-repeat;
     z-index: -1;
 }
@@ -274,14 +255,11 @@ header {
 .game-table .result-overlay {
     position: absolute;
     inset: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 25px;
     background-color: rgba(0, 0, 0, 0.75);
-
     z-index: 10;
 }
 
@@ -296,21 +274,15 @@ header {
     overflow-y: auto;
     position: relative;
     padding: 35px 30px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     background: linear-gradient(145deg, #291a13 0%, #140d0a 100%);
-
     border: 3px solid #c9a157;
     border-radius: 18px;
-
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-
     text-align: center;
     color: #fff6e8;
-
     animation: result-appear 0.5s ease-out;
 }
 
@@ -326,13 +298,11 @@ header {
     font-size: 34px;
     font-weight: bold;
     letter-spacing: 2px;
-
     color: var(--result-color, #e6c16d);
 }
 
 #result_message {
     margin: 0;
-
     font-size: 16px;
     line-height: 1.5;
     color: #dfd0b9;
@@ -340,25 +310,19 @@ header {
 
 .result-scores {
     width: 100%;
-
     display: flex;
     gap: 15px;
-
     margin: 10px 0;
 }
 
 .result-score {
     flex: 1;
-
     padding: 15px 10px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
-
     background: rgba(255, 255, 255, 0.06);
-
     border: 1px solid rgba(201, 161, 87, 0.35);
     border-radius: 10px;
 }
@@ -367,7 +331,6 @@ header {
     font-size: 13px;
     font-weight: bold;
     letter-spacing: 1px;
-
     color: #dbc7ad;
 }
 
@@ -375,15 +338,11 @@ header {
     position: absolute;
     top: 12px;
     right: 15px;
-
     background: transparent;
     border: none;
-
     color: #dbc7ad;
     font-size: 22px;
-
     cursor: pointer;
-
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
@@ -410,13 +369,10 @@ header {
 
 .debug-panel {
     background: rgba(0, 0, 0, 0.65);
-
     border-left: 4px solid #d6a64a;
     border-radius: 0 12px 12px 0;
-
     padding: 20px 25px;
     margin-top: 40px;
-
     color: #fff6e8;
 }
 
@@ -427,11 +383,8 @@ header {
 
 .site-footer {
     width: 100%;
-
     background: linear-gradient(180deg, #241610 0%, #130b09 100%);
-
     border-top: 2px solid #a9824c;
-
     box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -450,16 +403,12 @@ main {
 
     70% {
         opacity: 1;
-        transform: translateY(4px)
-                   rotate(2deg)
-                   scale(1.05);
+        transform: translateY(4px) rotate(2deg) scale(1.05);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0)
-                   rotate(0deg)
-                   scale(1);
+        transform: translateY(0) rotate(0deg) scale(1);
     }
 }
 
@@ -528,7 +477,6 @@ main {
         top: 180px;
         left: 10px;
         margin: 10px;
-
         width: 48px;
         height: 67px;
     }
@@ -572,7 +520,6 @@ main {
         flex-direction: column;
         justify-content: center;
         gap: 12px;
-
         padding: 20px 15px;
     }
 
