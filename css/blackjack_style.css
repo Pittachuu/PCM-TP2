@@ -72,7 +72,6 @@ header {
     padding: 12px 22px;
     background-color: #17110f;
     border-radius: 0 0 14px 14px;
-
 }
 
 .mini-chip {
@@ -109,8 +108,7 @@ header {
     align-items: center;
     gap: 12px;
     width: 100%;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin: 15px 0px 20px;
 }
 
 #card,
@@ -293,7 +291,6 @@ header {
 
 #result_title {
     margin: 0;
-
     font-family: Georgia, "Times New Roman", serif;
     font-size: 34px;
     font-weight: bold;
@@ -340,7 +337,7 @@ header {
     right: 15px;
     background: transparent;
     border: none;
-    color: #dbc7ad;
+    color: #dbadad;
     font-size: 22px;
     cursor: pointer;
     transition: color 0.2s ease, transform 0.2s ease;
