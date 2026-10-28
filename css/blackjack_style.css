@@ -5,6 +5,7 @@ body {
     background: radial-gradient(ellipse at top, #2c1a13 0%, #190e0a 55%, #0e0806 100%);
 }
 
+
 header {
     background: transparent;
     border: none;
@@ -431,9 +432,6 @@ main {
     }
 }
 
-.card-deck.deck-shake {
-    animation: deckShake 0.5s ease-in-out;
-}
 
 @keyframes deckShake {
     0%, 100% {
